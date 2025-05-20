@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription - Mongoo
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-body">
+						<h1 class="h3 mb-3 text-center" style="color: var(--primary-color);">Inscription</h1>
+
+						{{ form_start(registrationForm) }}
+						<div class="mb-3">
+							{{ form_row(registrationForm.email) }}
+						</div>
+						<div class="mb-3">
+							{{ form_row(registrationForm.firstname) }}
+						</div>
+						<div class="mb-3">
+							{{ form_row(registrationForm.lastname) }}
+						</div>
+						<div class="mb-3">
+							{{ form_row(registrationForm.plainPassword) }}
+						</div>
+
+						<div class="d-grid gap-2">
+							<button type="submit" class="btn btn-primary">S'inscrire</button>
+						</div>
+						{{ form_end(registrationForm) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
