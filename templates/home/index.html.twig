@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mongoo - Administration
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-12 text-center mb-4">
+			<h1 class="display-4" style="color: var(--primary-color);">Bienvenue dans l'administration Mongoo</h1>
+			<p class="lead">Gérez vos restaurants et vos employés en toute simplicité</p>
+		</div>
+	</div>
+
+	<div class="row mt-4">
+		<div class="col-md-6">
+			<div class="card mb-4">
+				<div class="card-body text-center">
+					<h3 style="color: var(--primary-color);">Restaurants</h3>
+					<p>Gérez les restaurants Mongoo</p>
+					<a href="/restaurant" class="btn btn-primary">Accéder aux restaurants</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="card mb-4">
+				<div class="card-body text-center">
+					<h3 style="color: var(--secondary-color);">Employés</h3>
+					<p>Gérez les employés Mongoo</p>
+					<a href="/employee" class="btn btn-secondary">Accéder aux employés</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-4">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-body">
+					<h4 style="color: var(--primary-color);">À propos de Mongoo</h4>
+					<p>Mongoo est une chaîne de restauration rapide spécialisée dans la salade à composer. Avec 8 restaurants dans Paris et sa région, nous offrons une expérience unique de restauration rapide et saine.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
