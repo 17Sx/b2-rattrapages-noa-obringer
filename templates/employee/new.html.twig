@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel employé
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-4">
+		<div class="row">
+			<div class="col-md-8 offset-md-2">
+				<div class="card">
+					<div class="card-header">
+						<h1 class="h3 mb-0">
+							<i class="fas fa-user-plus"></i>
+							Nouvel employé</h1>
+					</div>
+					<div class="card-body">
+						{{ form_start(form) }}
+						<div class="mb-3">
+							{{ form_label(form.name) }}
+							{{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+							{{ form_errors(form.name) }}
+						</div>
+						<div class="mb-3">
+							{{ form_label(form.restaurant) }}
+							{{ form_widget(form.restaurant, {'attr': {'class': 'form-control'}}) }}
+							{{ form_errors(form.restaurant) }}
+						</div>
+						<div class="d-flex justify-content-between">
+							<a href="{{ path('app_employee_index') }}" class="btn btn-secondary">
+								<i class="fas fa-arrow-left"></i>
+								Retour à la liste
+							</a>
+							<button type="submit" class="btn btn-primary">
+								<i class="fas fa-save"></i>
+								Enregistrer
+							</button>
+						</div>
+						{{ form_end(form) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

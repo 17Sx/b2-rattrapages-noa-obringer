@@ -29,8 +29,6 @@ security:
     - { path: ^/$, roles: PUBLIC_ACCESS }
     - { path: ^/restaurant$, roles: PUBLIC_ACCESS }
     - { path: ^/restaurant/[0-9]+$, roles: PUBLIC_ACCESS }
-    - { path: ^/admin, roles: ROLE_ADMIN }
-    - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
   security:

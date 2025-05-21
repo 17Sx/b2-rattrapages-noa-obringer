@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\EmployeeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: EmployeeRepository::class)]
 class Employee
@@ -14,22 +15,42 @@ class Employee
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Employee = null;
+    #[Assert\NotBlank(message: "Le nom est obligatoire")]
+    #[Assert\Length(min: 2, max: 255, minMessage: "Le nom doit faire au moins {{ limit }} caractères", maxMessage: "Le nom ne peut pas faire plus de {{ limit }} caractères")]
+    private ?string $name = null;
+
+    #[ORM\ManyToOne(inversedBy: 'employees')]
+    #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotNull(message: "Le restaurant est obligatoire")]
+    private ?Restaurant $restaurant = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getEmployee(): ?string
+    public function getName(): ?string
     {
-        return $this->Employee;
+        return $this->name;
     }
 
-    public function setEmployee(string $Employee): static
+    public function setName(string $name): static
     {
-        $this->Employee = $Employee;
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getRestaurant(): ?Restaurant
+    {
+        return $this->restaurant;
+    }
+
+    public function setRestaurant(?Restaurant $restaurant): static
+    {
+        $this->restaurant = $restaurant;
 
         return $this;
     }
 }
+ 
