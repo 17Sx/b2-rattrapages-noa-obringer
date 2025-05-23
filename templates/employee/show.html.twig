@@ -5,60 +5,54 @@
 
 {% block body %}
 	<div class="container mt-4">
-		<div class="row">
-			<div class="col-md-8 offset-md-2">
-				<div class="card">
-					<div class="card-header">
-						<h1 class="h3 mb-0">
-							<i class="fas fa-user"></i>
-							Détails de l'employé</h1>
-					</div>
-					<div class="card-body">
-						<table class="table">
-							<tbody>
-								<tr>
-									<th>
-										<i class="fas fa-hashtag"></i>
-										ID</th>
-									<td>{{ employee.id }}</td>
-								</tr>
-								<tr>
-									<th>
-										<i class="fas fa-user"></i>
-										Nom</th>
-									<td>{{ employee.name }}</td>
-								</tr>
-								<tr>
-									<th>
-										<i class="fas fa-store"></i>
-										Restaurant</th>
-									<td>{{ employee.restaurant.name }}</td>
-								</tr>
-							</tbody>
-						</table>
+		<h1>Détails de l'employé</h1>
 
-						<div class="d-flex justify-content-between">
-							<a href="{{ path('app_employee_index') }}" class="btn btn-secondary">
-								<i class="fas fa-arrow-left"></i>
-								Retour à la liste
-							</a>
-							<div>
-								<a href="{{ path('app_employee_edit', {'id': employee.id}) }}" class="btn btn-warning">
-									<i class="fas fa-edit"></i>
-									Modifier
-								</a>
-								<form method="post" action="{{ path('app_employee_delete', {'id': employee.id}) }}" style="display: inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet employé ?');">
-									<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ employee.id) }}">
-									<button class="btn btn-danger">
-										<i class="fas fa-trash-alt"></i>
-										Supprimer
-									</button>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
+		<div class="card">
+			<div class="card-body">
+				<table class="table">
+					<tbody>
+						<tr>
+							<th>ID</th>
+							<td>{{ employee.id }}</td>
+						</tr>
+						<tr>
+							<th>Nom</th>
+							<td>{{ employee.name }}</td>
+						</tr>
+						<tr>
+							<th>Email</th>
+							<td>{{ employee.email }}</td>
+						</tr>
+						<tr>
+							<th>Statut</th>
+							<td>
+								{% if employee.active %}
+									<span class="badge bg-success">Actif</span>
+								{% else %}
+									<span class="badge bg-danger">Inactif</span>
+								{% endif %}
+							</td>
+						</tr>
+						<tr>
+							<th>Restaurant</th>
+							<td>{{ employee.restaurant.name }}</td>
+						</tr>
+						<tr>
+							<th>Date de création</th>
+							<td>{{ employee.createdAt ? employee.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+						</tr>
+						<tr>
+							<th>Dernière mise à jour</th>
+							<td>{{ employee.updatedAt ? employee.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
+		</div>
+
+		<div class="mt-3">
+			<a href="{{ path('app_employee_edit', {'id': employee.id}) }}" class="btn btn-warning">Modifier</a>
+			<a href="{{ path('app_employee_index') }}" class="btn btn-secondary">Retour à la liste</a>
 		</div>
 	</div>
 {% endblock %}

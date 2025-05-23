@@ -33,8 +33,17 @@
 							<i class="fas fa-user"></i>
 							Nom</th>
 						<th>
+							<i class="fas fa-envelope"></i>
+							Email</th>
+						<th>
+							<i class="fas fa-check-circle"></i>
+							Statut</th>
+						<th>
 							<i class="fas fa-store"></i>
 							Restaurant</th>
+						<th>
+							<i class="fas fa-calendar-alt"></i>
+							Date de création</th>
 						<th>
 							<i class="fas fa-cogs"></i>
 							Actions</th>
@@ -45,7 +54,16 @@
 						<tr>
 							<td>{{ employee.id }}</td>
 							<td>{{ employee.name }}</td>
+							<td>{{ employee.email }}</td>
+							<td>
+								{% if employee.active %}
+									<span class="badge bg-success">Actif</span>
+								{% else %}
+									<span class="badge bg-danger">Inactif</span>
+								{% endif %}
+							</td>
 							<td>{{ employee.restaurant.name }}</td>
+							<td>{{ employee.createdAt ? employee.createdAt|date('Y-m-d H:i:s') : '' }}</td>
 							<td>
 								<div class="btn-group" role="group">
 									<a href="{{ path('app_employee_show', {'id': employee.id}) }}" class="btn btn-info btn-sm" title="Voir les détails">
@@ -65,7 +83,7 @@
 						</tr>
 					{% else %}
 						<tr>
-							<td colspan="4" class="text-center">
+							<td colspan="7" class="text-center">
 								<i class="fas fa-info-circle"></i>
 								Aucun employé trouvé
 							</td>
