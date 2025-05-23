@@ -14,6 +14,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class RegistrationFormType extends AbstractType
 {
+    // cree un formulaire pour le register
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder

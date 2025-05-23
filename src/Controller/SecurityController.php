@@ -10,6 +10,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     #[Route('/login', name: 'app_login')]
+    // Connexion 
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         if ($this->getUser()) {
@@ -26,6 +27,7 @@ class SecurityController extends AbstractController
     }
 
     #[Route('/logout', name: 'app_logout')]
+    // Déconnexion de l'app
     public function logout(): void
     {
         throw new \Exception('Don\'t forget to activate logout in security.yaml');

@@ -13,9 +13,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/restaurant')]
+// Class pour gérer les restaurants
 class RestaurantController extends AbstractController
 {
     #[Route('/', name: 'app_restaurant_index', methods: ['GET'])]
+    // Affiche tous les restaurants 
     public function index(RestaurantRepository $restaurantRepository): Response
     {
         return $this->render('restaurant/index.html.twig', [
@@ -24,6 +26,7 @@ class RestaurantController extends AbstractController
     }
 
     #[Route('/new', name: 'app_restaurant_new', methods: ['GET', 'POST'])]
+    // Créer un nouveau restaurant si il y a besoin
     #[IsGranted('ROLE_USER')]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -46,6 +49,7 @@ class RestaurantController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_restaurant_show', methods: ['GET'])]
+    // afficher restaurant en detail
     public function show(Restaurant $restaurant): Response
     {
         return $this->render('restaurant/show.html.twig', [
@@ -54,6 +58,7 @@ class RestaurantController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_restaurant_edit', methods: ['GET', 'POST'])]
+    // Modifier un restaurant 
     #[IsGranted('ROLE_USER')]
     public function edit(Request $request, Restaurant $restaurant, EntityManagerInterface $entityManager): Response
     {
@@ -75,6 +80,7 @@ class RestaurantController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_restaurant_delete', methods: ['POST'])]
+    // Supprimer un restaurant 
     #[IsGranted('ROLE_USER')]
     public function delete(Request $request, Restaurant $restaurant, EntityManagerInterface $entityManager): Response
     {

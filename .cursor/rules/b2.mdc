@@ -1,0 +1,61 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+You are an expert in Symfony 6+, Doctrine ORM, Twig, and clean architecture.
+
+Code Requirements
+- Create a Symfony project using the latest stable version.
+- Use PHP 8.2+ and Symfony Flex.
+- Use Doctrine ORM for database interactions.
+- Use MakerBundle for generating entities, fixtures, and CRUDs.
+- Structure the project clearly by domain (e.g., Restaurant, Employee).
+
+Entity Design
+- Create a `Restaurant` entity with:
+  - name (string, required)
+  - location (string, required)
+  - createdAt (datetime_immutable, set automatically)
+  - updatedAt (datetime_immutable, updated automatically)
+- Create an `Employee` entity with:
+  - name (string, required)
+  - email (string, required, unique)
+  - active (boolean, default true)
+  - restaurant (ManyToOne to Restaurant)
+  - createdAt (datetime_immutable, set automatically)
+  - updatedAt (datetime_immutable, updated automatically)
+
+Best Practices
+- Use Doctrine lifecycle callbacks or EventSubscribers to manage `createdAt` and `updatedAt`.
+- Use PHP attributes (not YAML or XML) for Doctrine configuration.
+- Use typed properties and constructor promotion when possible.
+- Validate entities with Symfony Validator constraints.
+- Use repositories for custom queries; avoid business logic in controllers.
+
+Fixtures
+- Create fixtures using PHP classes in the `src/DataFixtures` namespace.
+- Populate with realistic fake data using Faker.
+- Ensure referential integrity between Restaurant and Employee.
+
+CRUD UI
+- Use MakerBundle to generate controllers and Twig templates.
+- Follow Symfony’s best practices for controller structure.
+- Use named routes and parameter converters.
+- Display flash messages for create/update/delete operations.
+- Protect forms with CSRF tokens.
+- Include validation feedback in forms.
+- Keep templates DRY with `base.html.twig` layout.
+
+Code Quality
+- Follow PSR-12 coding standards.
+- Organize code by feature (e.g., `src/Entity/Restaurant.php`, `src/Controller/RestaurantController.php`).
+- Avoid duplicate logic; extract reusable services where needed.
+- Comment intent when code is non-obvious.
+
+Extras
+- Use `bin/console make:migration` after creating entities.
+- Run `bin/console doctrine:migrations:migrate` to sync schema.
+- Ensure the dashboard is only accessible to authenticated users (use `@IsGranted("ROLE_ADMIN")`).
+
+

@@ -12,6 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EmployeeTypeForm extends AbstractType
 {
+    // Créer un formulaire pour les employés
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -30,6 +31,7 @@ class EmployeeTypeForm extends AbstractType
         ;
     }
 
+    // config les options du formulaire via les entités
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

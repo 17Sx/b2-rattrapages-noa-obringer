@@ -14,6 +14,9 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/employee')]
 #[IsGranted('ROLE_USER')]
+
+// Classe pour gérer les employés
+
 class EmployeeController extends AbstractController
 {
     #[Route('/', name: 'app_employee_index', methods: ['GET'])]
@@ -45,6 +48,8 @@ class EmployeeController extends AbstractController
         ]);
     }
 
+
+    // Affiche les détails d'un employé en detail
     #[Route('/{id}', name: 'app_employee_show', methods: ['GET'])]
     public function show(Employee $employee): Response
     {
@@ -53,6 +58,7 @@ class EmployeeController extends AbstractController
         ]);
     }
 
+    // Modifier un employé
     #[Route('/{id}/edit', name: 'app_employee_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Employee $employee, EntityManagerInterface $entityManager): Response
     {
@@ -72,6 +78,7 @@ class EmployeeController extends AbstractController
         ]);
     }
 
+    // Supprimer un employé si il y a besoin
     #[Route('/{id}', name: 'app_employee_delete', methods: ['POST'])]
     public function delete(Request $request, Employee $employee, EntityManagerInterface $entityManager): Response
     {

@@ -11,6 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RestaurantType extends AbstractType
 {
+    // cree un form pour les restaurants
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
