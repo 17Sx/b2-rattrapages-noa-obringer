@@ -1,5 +1,8 @@
 # Framework Backend - Symfony
 
+## Démonstration du projet
+
+[![Vidéo de démonstration](https://img.shields.io/badge/YouTube-Démonstration-red)](https://www.youtube.com/watch?v=-Ws753RFenw)
 
 ## Prérequis
 
