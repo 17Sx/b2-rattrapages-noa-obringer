@@ -75,3 +75,26 @@ php -S 127.0.0.1:8000 -t public
 - `templates/` : Templates Twig
 - `public/` : Fichiers publics (CSS, JS, images)
 - `migrations/` : Migrations de la base de données
+
+## Ressources internet utilisées
+
+### Documentation officielle
+
+- [Documentation Symfony](https://symfony.com/doc/current/index.html)
+- [Documentation Twig](https://twig.symfony.com/doc/)
+
+### Tutoriels et exemples
+
+- [Pentiminax sur youtube](https://www.youtube.com/watch?v=f7CamwgRAGI&list=PLkHw7J3J2iao-hVxplUrO_j-dz6ceqsXs) - Tutoriels vidéo sur Symfony
+- [Doctrine Fixtures Bundle](https://github.com/doctrine/DoctrineFixturesBundle) - Documentation sur les fixtures
+
+### Stack Overflow (Je n'ai pas enregistrer les liens)
+
+- Solutions pour la gestion des timestamps dans Doctrine
+- Exemples de formulaires Symfony avec validation
+- Meilleures pratiques pour les relations entre entités
+
+### GitHub
+
+- [Symfony Best Practices](https://github.com/symfony/symfony-docs)
+- [Twig Extensions](https://github.com/twigphp/Twig-extensions)
